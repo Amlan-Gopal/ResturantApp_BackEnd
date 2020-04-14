@@ -1,0 +1,18 @@
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://localhost:8000/eureka
+    server:
+      waitTimeInMsWhenSynEmpty: 0
+      
+zuul:
+  prefix: /resturant
+  routes:
+   mess-service:
+    path: /mess-service/**
+    url: http://localhost:8002
+   order-service:
+    path: /order-service/**
+    url: http://localhost:8001
